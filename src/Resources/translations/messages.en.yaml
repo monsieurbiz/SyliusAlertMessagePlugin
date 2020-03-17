@@ -1,0 +1,25 @@
+monsieurbiz_alert_message:
+  ui:
+    messages: Alert messages
+    messages_subheader: Manage alerts on your shop
+    new_message: New message
+    edit_message: Edit message
+    yes_label: Yes
+    no_label: No
+    form:
+      enabled: Enabled
+      customers_only: Logged-in customers only
+      name: Name
+      description: Description
+      channels: Channels
+      from: From
+      to: To
+      template_html: HTML template
+      template_html__with_hints: HTML template (use placeholders {{message}} for the message and {{title}} for the title)
+      translations: Translations
+      title: Title
+      message: Message
+    actions:
+      create: Create message
+      update: Update
+      delete: Delete

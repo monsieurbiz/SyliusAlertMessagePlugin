@@ -1,0 +1,10 @@
+sylius_resource:
+  resources:
+    monsieurbiz_alert_message.message:
+      classes:
+        model: MonsieurBiz\SyliusAlertMessagePlugin\Entity\Message
+        form: MonsieurBiz\SyliusAlertMessagePlugin\Form\Type\MessageType
+        repository: MonsieurBiz\SyliusAlertMessagePlugin\Repository\MessageRepository
+      translation:
+        classes:
+          model: MonsieurBiz\SyliusAlertMessagePlugin\Entity\MessageTranslation
