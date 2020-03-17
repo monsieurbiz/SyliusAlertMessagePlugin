@@ -1,0 +1,4 @@
+suites:
+    main:
+        namespace: MonsieurBiz\SyliusAlertMessagePlugin
+        psr4_prefix: MonsieurBiz\SyliusAlertMessagePlugin

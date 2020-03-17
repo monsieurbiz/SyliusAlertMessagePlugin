@@ -1,0 +1,10 @@
+{% for message in block.messages -%}
+    {%- if block.canDisplayMessage(message) -%}
+        <!-- ALERT MESSAGE {{ message.name }} -->
+        {%- if message.templateHtml is not null -%}
+            {{- block.formatMessageWithTemplate(message)|raw -}}
+        {%- else -%}
+            {%- include '@MonsieurBizSyliusAlertMessagePlugin/_default_template.html.twig' with {'message': message} -%}
+        {%- endif -%}
+    {%- endif %}
+{%- endfor %}

@@ -1,0 +1,25 @@
+monsieurbiz_alert_message:
+  ui:
+    messages: Messages d'alerte
+    messages_subheader: Gérer les alertes sur votre boutique
+    new_message: Nouveau message
+    edit_message: Modifier le message
+    yes_label: Oui
+    no_label: Non
+    form:
+      enabled: Activé
+      customers_only: Clients connectés uniquement
+      name: Nom
+      description: Description
+      channels: Canaux
+      from: À partir de
+      to: Jusqu'à
+      template_html: Modèle HTML
+      template_html__with_hints: Modèle HTML (utilisez les placeholders {{message}} et {{title}} respectivement pour le message et le titre)
+      translations: Traductions
+      title: Titre
+      message: Message
+    actions:
+      create: Créer un message
+      update: Éditer
+      delete: Supprimer
