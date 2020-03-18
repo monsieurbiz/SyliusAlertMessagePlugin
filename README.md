@@ -24,9 +24,11 @@ By default it'll use the Semantic UI classes.
 
 ## Installation
 
+<!--
 **Beware!**
 
 > This installation instruction assumes that you're using Symfony Flex.
+-->
 
 1. Require the plugin using composer
 
@@ -34,16 +36,22 @@ By default it'll use the Semantic UI classes.
     composer require monsieurbiz/sylius-alert-message-plugin
     ```
 
-2. Generate & Run Doctrine migrations
+2. Copy the configuration and routing files:
 
-```
-./bin/console doctrine:migration:diff
-./bin/console doctrine:migration:migrate
-```
+    ```bash
+    cp -Rv vendor/monsieurbiz/sylius-alert-message-plugin/recipe/dev/config/* config/
+    ```
+
+3. Generate & Run Doctrine migrations
+
+    ```
+    ./bin/console doctrine:migration:diff
+    ./bin/console doctrine:migration:migrate
+    ```
 
 ## How it works
 
-You just have to go in the Alert Messages section in your admin panel and add new message(s)! 
+You just have to go in the Alert Messages section in your admin panel and add new message(s)!
 
 ## Testing
 
