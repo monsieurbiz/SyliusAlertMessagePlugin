@@ -1,2 +1,2 @@
 imports:
-  - { resource: "@MonsieurBizSyliusAlertMessagePlugin/Resources/config/config.yaml" }
+    - { resource: "@MonsieurBizSyliusAlertMessagePlugin/Resources/config/config.yaml" }
