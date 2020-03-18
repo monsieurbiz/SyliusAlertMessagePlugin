@@ -23,8 +23,8 @@ final class MessageRepository extends EntityRepository implements MessageReposit
         $qb
             ->innerJoin('o.translations', 'translation', 'WITH', 'translation.locale = :locale')
             ->where('o.enabled = true')
-            ->andWhere('o.fromDate <= :now')
-            ->andWhere('o.toDate >= :now')
+            ->andWhere('o.fromDate <= :now OR o.fromDate IS NULL')
+            ->andWhere('o.toDate >= :now OR o.toDate IS NULL')
             ->andWhere(':channel MEMBER OF o.channels')
             ->setParameter('locale', $localeCode)
             ->setParameter('now', $now)
