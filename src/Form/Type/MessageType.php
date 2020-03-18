@@ -36,7 +36,7 @@ final class MessageType extends AbstractResourceType
                 'expanded' => true,
             ])
             ->add('name', TextType::class, [
-                'required' => false,
+                'required' => true,
                 'label' => 'monsieurbiz_alert_message.ui.form.name',
             ])
             ->add('description', TextType::class, [
