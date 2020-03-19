@@ -42,7 +42,17 @@ By default it'll use the Semantic UI classes.
     cp -Rv vendor/monsieurbiz/sylius-alert-message-plugin/recipe/dev/config/* config/
     ```
 
-3. Generate & Run Doctrine migrations
+3. Declare the plugin in your `config/bundles.php`:
+
+    ```php
+    <?php
+    return [
+        // …
+        MonsieurBiz\SyliusAdminBetterLoginPlugin\MonsieurBizSyliusAdminBetterLoginPlugin::class => ['all' => true],
+    ];
+    ```
+
+4. Generate & Run Doctrine migrations
 
     ```
     ./bin/console doctrine:migration:diff
