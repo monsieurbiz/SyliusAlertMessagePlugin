@@ -48,7 +48,7 @@ By default it'll use the Semantic UI classes.
     <?php
     return [
         // …
-        MonsieurBiz\SyliusAdminBetterLoginPlugin\MonsieurBizSyliusAdminBetterLoginPlugin::class => ['all' => true],
+        MonsieurBiz\SyliusAlertMessagePlugin\MonsieurBizSyliusAlertMessagePlugin::class => ['all' => true],
     ];
     ```
 
