@@ -63,6 +63,16 @@ By default it'll use the Semantic UI classes.
 
 You just have to go in the Alert Messages section in your admin panel and add new message(s)!
 
+## Examples
+
+You could use this plugin to:
+
+- Tell your customer how you are dealing with an epidemic outbreak.
+- Make a legal announcement.
+- Give all your logged-in customers a very attractive coupon code.
+
+Being able to add a well seen message on your shop can be useful.
+
 ## Testing
 
 See [TESTING.md](TESTING.md).
