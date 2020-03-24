@@ -8,7 +8,12 @@ services:
     resource: '../../*'
     exclude: '../../{DependencyInjection,Form/Type}'
 
-  # Repository interface for autowiring
+
+  # Tip for Sylius 1.3:
+  MonsieurBiz\SyliusAlertMessagePlugin\Repository\MessageRepository:
+    autowire: false
+
+  # Repository for autowiring
   MonsieurBiz\SyliusAlertMessagePlugin\Repository\MessageRepositoryInterface:
     alias: MonsieurBiz\SyliusAlertMessagePlugin\Repository\MessageRepository
 
@@ -37,5 +42,8 @@ services:
     class: MonsieurBiz\SyliusAlertMessagePlugin\Block\BlockEventListener
     arguments:
       $template: '@@MonsieurBizSyliusAlertMessagePlugin/message.html.twig'
+      $channelContext: '@sylius.context.channel.composite'
+      $localeContext: '@sylius.context.locale.composite'
+      $customerContext: '@sylius.context.customer'
     tags:
       - { name: kernel.event_listener, event: sonata.block.event.sylius.shop.layout.before_body, method: onBlockEvent }
