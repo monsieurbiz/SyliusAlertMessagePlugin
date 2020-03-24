@@ -41,6 +41,9 @@ jobs:
     - name: Validate composer.json and composer.lock
       run: composer validate --strict
 
+      - name: Composer Github Auth
+        run: composer config -g github-oauth.github.com ${{ github.token }}
+
     - name: Update dependencies
       run: composer update --prefer-${{ matrix.prefer }} --prefer-dist --no-progress --no-suggest --no-scripts
 
@@ -100,6 +103,9 @@ jobs:
 
       - name: Update composer
         run: sudo composer self-update --snapshot
+
+      - name: Composer Github Auth
+        run: composer config -g github-oauth.github.com ${{ github.token }}
 
       - name: Install Sylius-Standard
         run: |
