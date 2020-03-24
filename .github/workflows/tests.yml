@@ -21,34 +21,34 @@ jobs:
         prefer: [lowest, stable]
 
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - name: Switch PHP
-      run: sudo update-alternatives --set php /usr/bin/php${{ matrix.php }}
+      - name: Switch PHP
+        run: sudo update-alternatives --set php /usr/bin/php${{ matrix.php }}
 
-    - name: Show PHP version
-      run: php -v
+      - name: Show PHP version
+        run: php -v
 
-    - uses: actions/cache@v1
-      with:
-        path: /home/runner/.composer/cache
-        key: composer-php.${{ matrix.php }}-prefer.${{ matrix.prefer }}-${{ hashFiles('**/composer.json') }}
-        restore-keys: composer-php.${{ matrix.php }}-prefer.${{ matrix.prefer }}-
+      - uses: actions/cache@v1
+        with:
+          path: /home/runner/.composer/cache
+          key: composer-php.${{ matrix.php }}-prefer.${{ matrix.prefer }}-${{ github.sha }}
+          restore-keys: composer-php.${{ matrix.php }}-prefer.${{ matrix.prefer }}-
 
-    - name: Update composer
-      run: sudo composer self-update --snapshot
+      - name: Update composer
+        run: sudo composer self-update --snapshot
 
-    - name: Validate composer.json and composer.lock
-      run: composer validate --strict
+      - name: Validate composer.json and composer.lock
+        run: composer validate --strict
 
       - name: Composer Github Auth
         run: composer config -g github-oauth.github.com ${{ github.token }}
 
-    - name: Update dependencies
-      run: composer update --prefer-${{ matrix.prefer }} --prefer-dist --no-progress --no-suggest --no-scripts
+      - name: Update dependencies
+        run: composer update --prefer-${{ matrix.prefer }} --prefer-dist --no-progress --no-suggest --no-scripts
 
-    - name: PHPunit
-      run: ./vendor/bin/phpunit
+      - name: PHPunit
+        run: ./vendor/bin/phpunit
 
 
   sylius:
@@ -98,7 +98,7 @@ jobs:
       - uses: actions/cache@v1
         with:
           path: /home/runner/.composer/cache
-          key: composer-php.${{ matrix.php }}-sylius.${{ matrix.sylius }}.0-${{ hashFiles('**/composer.json') }}
+          key: composer-php.${{ matrix.php }}-sylius.${{ matrix.sylius }}.0-${{ github.sha }}
           restore-keys: composer-php.${{ matrix.php }}-sylius.${{ matrix.sylius }}.0-
 
       - name: Update composer
