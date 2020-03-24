@@ -135,6 +135,11 @@ jobs:
         run: |
           composer create-project --prefer-dist --no-scripts --no-progress sylius/sylius-standard sylius "~${{ matrix.sylius }}.0"
 
+      - name: Copy parameters.yml
+        working-directory: ./sylius/app/config
+        run: cp parameters.yml.dist parameters.yml
+        if: matrix.sylius == "1.0" || matrix.sylius == 1.1 || matrix.sylius == 1.2
+
       - name: Init database
         working-directory: ./sylius
         run: |
