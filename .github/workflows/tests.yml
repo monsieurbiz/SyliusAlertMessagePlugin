@@ -36,7 +36,9 @@ jobs:
           restore-keys: composer-php.${{ matrix.php }}-prefer.${{ matrix.prefer }}-
 
       - name: Update composer
-        run: sudo composer self-update --snapshot
+        run: |
+          mkdir -p /home/runner/.composer
+          sudo composer self-update --snapshot
 
       - name: Validate composer.json and composer.lock
         run: composer validate --strict
@@ -102,7 +104,9 @@ jobs:
           restore-keys: composer-php.${{ matrix.php }}-sylius.${{ matrix.sylius }}.0-
 
       - name: Update composer
-        run: sudo composer self-update --snapshot
+        run: |
+          mkdir -p /home/runner/.composer
+          sudo composer self-update --snapshot
 
       - name: Composer Github Auth
         run: composer config -g github-oauth.github.com ${{ github.token }}
