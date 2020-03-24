@@ -17,7 +17,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php: [7.2, 7.3]
+        php: [7.1, 7.2, 7.3]
         prefer: [lowest, stable]
 
     steps:
@@ -63,12 +63,32 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php: [7.2, 7.3]
-        sylius: [1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7]
+        php: [7.1, 7.2, 7.3]
+        sylius: ["1.0", 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7]
         mariadb_version: [10.3, 10.4]
         exclude:
+          - php: 7.1
+            sylius: 1.3
+          - php: 7.1
+            sylius: 1.4
+          - php: 7.1
+            sylius: 1.5
+          - php: 7.1
+            sylius: 1.6
+          - php: 7.2
+            sylius: "1.0"
+          - php: 7.2
+            sylius: 1.1
+          - php: 7.2
+            sylius: 1.2
           - php: 7.2
             sylius: 1.7
+          - php: 7.3
+            sylius: "1.0"
+          - php: 7.3
+            sylius: 1.1
+          - php: 7.3
+            sylius: 1.2
 
     steps:
       - name: Remove HHVM
