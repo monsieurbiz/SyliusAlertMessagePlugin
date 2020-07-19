@@ -1,10 +1,10 @@
 <p align="center">
     <a href="https://monsieurbiz.com" target="_blank">
-        <img src="https://monsieurbiz.com/logo.png" width="250px" />
+        <img src="https://monsieurbiz.com/logo.png" width="250px" alt="Monsieur Biz logo" />
     </a>
     &nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="https://sylius.com" target="_blank">
-        <img src="https://demo.sylius.com/assets/shop/img/logo.png" width="200px" />
+    <a href="https://monsieurbiz.com/agence-web-experte-sylius" target="_blank">
+        <img src="https://demo.sylius.com/assets/shop/img/logo.png" width="200px" alt="Sylius logo" />
     </a>
 </p>
 
@@ -24,11 +24,9 @@ By default it'll use the Semantic UI classes.
 
 ## Installation
 
-<!--
 **Beware!**
 
 > This installation instruction assumes that you're using Symfony Flex.
--->
 
 1. Require the plugin using composer
 
@@ -36,23 +34,7 @@ By default it'll use the Semantic UI classes.
     composer require monsieurbiz/sylius-alert-message-plugin
     ```
 
-2. Copy the configuration and routing files:
-
-    ```bash
-    cp -Rv vendor/monsieurbiz/sylius-alert-message-plugin/recipe/dev/config/* config/
-    ```
-
-3. Declare the plugin in your `config/bundles.php`:
-
-    ```php
-    <?php
-    return [
-        // …
-        MonsieurBiz\SyliusAlertMessagePlugin\MonsieurBizSyliusAlertMessagePlugin::class => ['all' => true],
-    ];
-    ```
-
-4. Generate & Run Doctrine migrations
+2. Generate & Run Doctrine migrations
 
     ```
     ./bin/console doctrine:migration:diff
@@ -79,5 +61,5 @@ See [TESTING.md](TESTING.md).
 
 ## Contributing
 
-You can open an issue or a Pull Request if you want! 😘  
+You can open an issue or a Pull Request if you want! 😘    
 Thank you!
