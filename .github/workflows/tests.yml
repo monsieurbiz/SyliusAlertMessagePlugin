@@ -38,7 +38,7 @@ jobs:
       - name: Update composer
         run: |
           mkdir -p /home/runner/.composer/
-          sudo composer self-update --stable
+          sudo composer self-update --1
 
       - name: Validate composer.json and composer.lock
         run: composer validate --strict
@@ -106,7 +106,7 @@ jobs:
       - name: Update composer
         run: |
           mkdir -p /home/runner/.composer/
-          sudo composer self-update --stable
+          sudo composer self-update --1
 
       - name: Composer Github Auth
         run: composer config -g github-oauth.github.com ${{ github.token }}
