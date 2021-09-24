@@ -1,0 +1,6 @@
+sylius_ui:
+  events:
+    sylius.shop.layout.before_body:
+      blocks:
+        monsieurbiz.alertmessage.message:
+          template: '@MonsieurBizSyliusAlertMessagePlugin/message.html.twig'
