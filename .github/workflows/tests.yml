@@ -67,7 +67,7 @@ jobs:
       matrix:
         php: ['7.4', '8.0']
         sylius: ['1.8', '1.9', '1.10']
-        mariadb_version: ['10.4']
+        mysql_version: ['5.7', '8.0']
         flex: ["standalone", "official"]
         exclude:
           - php: '8.0'
@@ -150,7 +150,6 @@ jobs:
       - name: Update database schema
         working-directory: ./sylius
         run: |
-          php bin/console doctrine:migr:diff -vvv
           php bin/console doctrine:migr:migr -n
 
       - name: Install Sylius
@@ -159,8 +158,8 @@ jobs:
 
     services:
 
-      mariadb:
-        image: mariadb:${{ matrix.mariadb_version }}
+      database:
+        image: percona:${{ matrix.mysql_version }}
         ports:
           - 3306:3306
         env:
