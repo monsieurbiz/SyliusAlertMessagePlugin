@@ -1,8 +1,8 @@
-{% for message in block.messages -%}
-    {%- if block.canDisplayMessage(message) -%}
+{% for message in monsieurbiz_alert_messages() -%}
+    {%- if monsieurbiz_can_display_alert_message(message) -%}
         <!-- ALERT MESSAGE {{ message.name }} -->
         {%- if message.templateHtml is not null -%}
-            {{- block.formatMessageWithTemplate(message)|raw -}}
+            {{- monsieurbiz_format_alert_message(message)|raw -}}
         {%- else -%}
             {%- include '@MonsieurBizSyliusAlertMessagePlugin/_default_template.html.twig' with {'message': message} -%}
         {%- endif -%}

@@ -36,14 +36,3 @@ services:
       - { name: form.type }
     arguments:
       - '%monsieurbiz_alert_message.model.message_translation.class%'
-
-  # Front
-  monsieurbiz_alert_message.block_event_listener.layout.before_body:
-    class: MonsieurBiz\SyliusAlertMessagePlugin\Block\BlockEventListener
-    arguments:
-      $template: '@@MonsieurBizSyliusAlertMessagePlugin/message.html.twig'
-      $channelContext: '@sylius.context.channel.composite'
-      $localeContext: '@sylius.context.locale.composite'
-      $customerContext: '@sylius.context.customer'
-    tags:
-      - { name: kernel.event_listener, event: sonata.block.event.sylius.shop.layout.before_body, method: onBlockEvent }
