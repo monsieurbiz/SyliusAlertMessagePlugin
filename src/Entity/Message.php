@@ -1,4 +1,14 @@
 <?php
+
+/*
+ * This file is part of Monsieur Biz' Alert Message plugin for Sylius.
+ *
+ * (c) Monsieur Biz <sylius@monsieurbiz.com>
+ *
+ * For the full copyright and license information, please view the LICENSE.txt
+ * file that was distributed with this source code.
+ */
+
 declare(strict_types=1);
 
 namespace MonsieurBiz\SyliusAlertMessagePlugin\Entity;
@@ -6,6 +16,8 @@ namespace MonsieurBiz\SyliusAlertMessagePlugin\Entity;
 use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\Timestampable\Timestampable;
 use Sylius\Component\Channel\Model\Channel;
 use Sylius\Component\Resource\Model\ResourceInterface;
@@ -15,16 +27,15 @@ use Sylius\Component\Resource\Model\ToggleableInterface;
 use Sylius\Component\Resource\Model\ToggleableTrait;
 use Sylius\Component\Resource\Model\TranslatableInterface;
 use Sylius\Component\Resource\Model\TranslatableTrait;
-use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
- * @ORM\Entity()
+ * @ORM\Entity
  * @ORM\Table(name="mbiz_alert_message")
  */
 class Message implements ResourceInterface, TimestampableInterface, ToggleableInterface, TranslatableInterface, Timestampable
 {
-    use TimestampableTrait, ToggleableTrait;
+    use TimestampableTrait;
+    use ToggleableTrait;
     use TranslatableTrait {
         __construct as private initializeTranslationsCollection;
         getTranslation as private doGetTranslation;
@@ -33,21 +44,21 @@ class Message implements ResourceInterface, TimestampableInterface, ToggleableIn
     /**
      * @var int|null
      *
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
+     * @ORM\Id
+     * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
     private $id;
 
     /**
      * @var bool
-     * @ORM\Column(type="boolean", options={"default": true})
+     * @ORM\Column(type="boolean", options={"default"=true})
      */
     protected $enabled = true;
 
     /**
      * @var bool
-     * @ORM\Column(name="customers_only", type="boolean", options={"default": false})
+     * @ORM\Column(name="customers_only", type="boolean", options={"default"=false})
      */
     protected $customersOnly = false;
 
@@ -64,7 +75,7 @@ class Message implements ResourceInterface, TimestampableInterface, ToggleableIn
     protected $description;
 
     /**
-     * @var Collection
+     * @var Collection<int, Channel>
      * @ORM\ManyToMany(targetEntity="\Sylius\Component\Channel\Model\Channel")
      * @ORM\JoinTable(
      *     name="mbiz_alert_message_channels",
@@ -188,7 +199,7 @@ class Message implements ResourceInterface, TimestampableInterface, ToggleableIn
     }
 
     /**
-     * @return Collection
+     * @return Collection<int, Channel>
      */
     public function getChannels(): Collection
     {
@@ -248,7 +259,10 @@ class Message implements ResourceInterface, TimestampableInterface, ToggleableIn
      */
     public function getTitle(): ?string
     {
-        return $this->doGetTranslation()->getTitle();
+        /** @var MessageTranslation $translation */
+        $translation = $this->doGetTranslation();
+
+        return $translation->getTitle();
     }
 
     /**
@@ -256,11 +270,14 @@ class Message implements ResourceInterface, TimestampableInterface, ToggleableIn
      */
     public function getMessage(): ?string
     {
-        return $this->doGetTranslation()->getMessage();
+        /** @var MessageTranslation $translation */
+        $translation = $this->doGetTranslation();
+
+        return $translation->getMessage();
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     protected function createTranslation(): MessageTranslation
     {

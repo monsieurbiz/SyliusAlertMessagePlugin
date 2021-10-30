@@ -1,25 +1,35 @@
 <?php
+
+/*
+ * This file is part of Monsieur Biz' Alert Message plugin for Sylius.
+ *
+ * (c) Monsieur Biz <sylius@monsieurbiz.com>
+ *
+ * For the full copyright and license information, please view the LICENSE.txt
+ * file that was distributed with this source code.
+ */
+
 declare(strict_types=1);
 
 namespace MonsieurBiz\SyliusAlertMessagePlugin\Entity;
 
-use Sylius\Component\Resource\Model\AbstractTranslation;
 use Doctrine\ORM\Mapping as ORM;
+use Sylius\Component\Resource\Model\AbstractTranslation;
 use Sylius\Component\Resource\Model\ResourceInterface;
+use Sylius\Component\Resource\Model\TranslationInterface;
 
 /**
- * @ORM\Entity()
+ * @ORM\Entity
  * @ORM\Table(name="mbiz_alert_message_translation")
  */
-class MessageTranslation extends AbstractTranslation implements ResourceInterface
+class MessageTranslation extends AbstractTranslation implements TranslationInterface, ResourceInterface
 {
-
     /**
      * @var int|null
      *
-     * @ORM\Id()
+     * @ORM\Id
      * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue()
+     * @ORM\GeneratedValue
      */
     private $id;
 
@@ -74,5 +84,4 @@ class MessageTranslation extends AbstractTranslation implements ResourceInterfac
     {
         $this->message = $message;
     }
-
 }
