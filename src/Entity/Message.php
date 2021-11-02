@@ -35,9 +35,12 @@ use Sylius\Component\Resource\Model\TranslatableTrait;
 class Message implements ResourceInterface, TimestampableInterface, ToggleableInterface, TranslatableInterface, Timestampable
 {
     use TimestampableTrait;
+
     use ToggleableTrait;
+
     use TranslatableTrait {
         __construct as private initializeTranslationsCollection;
+
         getTranslation as private doGetTranslation;
     }
 
@@ -126,73 +129,46 @@ class Message implements ResourceInterface, TimestampableInterface, ToggleableIn
         $this->channels = new ArrayCollection();
     }
 
-    /**
-     * @return int|null
-     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    /**
-     * @return bool
-     */
     public function isCustomersOnly(): bool
     {
         return $this->customersOnly;
     }
 
-    /**
-     * @param bool $customersOnly
-     */
     public function setCustomersOnly(bool $customersOnly): void
     {
         $this->customersOnly = $customersOnly;
     }
 
-    /**
-     * @return string|null
-     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
-    /**
-     * @param string|null $name
-     */
     public function setName(?string $name): void
     {
         $this->name = $name;
     }
 
-    /**
-     * @return string|null
-     */
     public function getDescription(): ?string
     {
         return $this->description;
     }
 
-    /**
-     * @param string|null $description
-     */
     public function setDescription(?string $description): void
     {
         $this->description = $description;
     }
 
-    /**
-     * @return string|null
-     */
     public function getTemplateHtml(): ?string
     {
         return $this->templateHtml;
     }
 
-    /**
-     * @param string|null $templateHtml
-     */
     public function setTemplateHtml(?string $templateHtml): void
     {
         $this->templateHtml = $templateHtml;
@@ -206,57 +182,36 @@ class Message implements ResourceInterface, TimestampableInterface, ToggleableIn
         return $this->channels;
     }
 
-    /**
-     * @param Channel $channel
-     */
     public function addChannel(Channel $channel): void
     {
         $this->channels->add($channel);
     }
 
-    /**
-     * @param Channel $channel
-     */
     public function removeChannel(Channel $channel): void
     {
         $this->channels->removeElement($channel);
     }
 
-    /**
-     * @return DateTimeInterface|null
-     */
     public function getFromDate(): ?DateTimeInterface
     {
         return $this->fromDate;
     }
 
-    /**
-     * @param DateTimeInterface|null $fromDate
-     */
     public function setFromDate(?DateTimeInterface $fromDate): void
     {
         $this->fromDate = $fromDate;
     }
 
-    /**
-     * @return DateTimeInterface|null
-     */
     public function getToDate(): ?DateTimeInterface
     {
         return $this->toDate;
     }
 
-    /**
-     * @param DateTimeInterface|null $toDate
-     */
     public function setToDate(?DateTimeInterface $toDate): void
     {
         $this->toDate = $toDate;
     }
 
-    /**
-     * @return string|null
-     */
     public function getTitle(): ?string
     {
         /** @var MessageTranslation $translation */
@@ -265,9 +220,6 @@ class Message implements ResourceInterface, TimestampableInterface, ToggleableIn
         return $translation->getTitle();
     }
 
-    /**
-     * @return string|null
-     */
     public function getMessage(): ?string
     {
         /** @var MessageTranslation $translation */
@@ -277,7 +229,7 @@ class Message implements ResourceInterface, TimestampableInterface, ToggleableIn
     }
 
     /**
-     * {@inheritDoc}
+     * @inheritDoc
      */
     protected function createTranslation(): MessageTranslation
     {

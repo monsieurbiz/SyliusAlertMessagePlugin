@@ -21,7 +21,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 final class MessageTranslationType extends AbstractResourceType
 {
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -37,7 +37,7 @@ final class MessageTranslationType extends AbstractResourceType
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getBlockPrefix(): string
     {

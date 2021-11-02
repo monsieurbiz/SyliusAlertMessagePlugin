@@ -25,7 +25,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 final class MessageType extends AbstractResourceType
 {
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {

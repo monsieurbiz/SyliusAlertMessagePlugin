@@ -20,9 +20,6 @@ use Sylius\Component\Channel\Model\ChannelInterface;
 final class MessageRepository extends EntityRepository implements MessageRepositoryInterface
 {
     /**
-     * @param ChannelInterface $channel
-     * @param string $localeCode
-     *
      * @throws \Exception
      *
      * @return mixed

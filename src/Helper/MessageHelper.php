@@ -44,11 +44,6 @@ final class MessageHelper extends Block
 
     /**
      * MessageHelper constructor.
-     *
-     * @param ChannelContextInterface $channelContext
-     * @param LocaleContextInterface $localeContext
-     * @param CustomerContextInterface $customerContext
-     * @param MessageRepositoryInterface $messageRepository
      */
     public function __construct(
         ChannelContextInterface $channelContext,
@@ -71,11 +66,6 @@ final class MessageHelper extends Block
         );
     }
 
-    /**
-     * @param Message $message
-     *
-     * @return bool
-     */
     public function canDisplayMessage(Message $message): bool
     {
         return
@@ -84,11 +74,6 @@ final class MessageHelper extends Block
         ;
     }
 
-    /**
-     * @param Message $message
-     *
-     * @return string|null
-     */
     public function formatMessageWithTemplate(Message $message): ?string
     {
         $template = (string) $message->getTemplateHtml();

@@ -45,41 +45,26 @@ class MessageTranslation extends AbstractTranslation implements TranslationInter
      */
     private $message;
 
-    /**
-     * @return int|null
-     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    /**
-     * @return string|null
-     */
     public function getTitle(): ?string
     {
         return $this->title;
     }
 
-    /**
-     * @param string|null $title
-     */
     public function setTitle(?string $title): void
     {
         $this->title = $title;
     }
 
-    /**
-     * @return string|null
-     */
     public function getMessage(): ?string
     {
         return $this->message;
     }
 
-    /**
-     * @param string $message
-     */
     public function setMessage(string $message): void
     {
         $this->message = $message;
