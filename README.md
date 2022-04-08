@@ -13,8 +13,8 @@
 <h1 align="center">Alert Message</h1>
 
 [![Alert Message Plugin license](https://img.shields.io/github/license/monsieurbiz/SyliusAlertMessagePlugin?public)](https://github.com/monsieurbiz/SyliusAlertMessagePlugin/blob/master/LICENSE.txt)
-![Tests](https://github.com/monsieurbiz/SyliusAlertMessagePlugin/workflows/Tests/badge.svg)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/monsieurbiz/SyliusAlertMessagePlugin/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/monsieurbiz/SyliusAlertMessagePlugin/?branch=master)
+[![Tests Status](https://img.shields.io/github/workflow/status/monsieurbiz/SyliusAlertMessagePlugin/Tests?logo=github)](https://github.com/monsieurbiz/SyliusAlertMessagePlugin/actions?query=workflow%3ATests)
+[![Security Status](https://img.shields.io/github/workflow/status/monsieurbiz/SyliusAlertMessagePlugin/Security?label=security&logo=github)](https://github.com/monsieurbiz/SyliusAlertMessagePlugin/actions?query=workflow%3ASecurity)
 
 This plugins allows you to add simple messages on your shop.  
 The messages can be different for logged-in customers.

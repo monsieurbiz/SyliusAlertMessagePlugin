@@ -2,3 +2,5 @@ suites:
     main:
         namespace: MonsieurBiz\SyliusAlertMessagePlugin
         psr4_prefix: MonsieurBiz\SyliusAlertMessagePlugin
+        src_path: src
+        spec_path: tests

@@ -1,4 +1,14 @@
 <?php
+
+/*
+ * This file is part of Monsieur Biz' Alert Message plugin for Sylius.
+ *
+ * (c) Monsieur Biz <sylius@monsieurbiz.com>
+ *
+ * For the full copyright and license information, please view the LICENSE.txt
+ * file that was distributed with this source code.
+ */
+
 declare(strict_types=1);
 
 namespace MonsieurBiz\SyliusAlertMessagePlugin\Form\Type;
@@ -11,7 +21,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 final class MessageTranslationType extends AbstractResourceType
 {
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -27,7 +37,7 @@ final class MessageTranslationType extends AbstractResourceType
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getBlockPrefix(): string
     {

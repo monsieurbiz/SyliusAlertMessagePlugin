@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of Monsieur Biz' Alert Message plugin for Sylius.
+ *
+ * (c) Monsieur Biz <sylius@monsieurbiz.com>
+ *
+ * For the full copyright and license information, please view the LICENSE.txt
+ * file that was distributed with this source code.
+ */
+
 declare(strict_types=1);
 
 namespace MonsieurBiz\SyliusAlertMessagePlugin\DependencyInjection;
@@ -10,18 +19,10 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
 final class Configuration implements ConfigurationInterface
 {
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getConfigTreeBuilder(): TreeBuilder
     {
-        $treeBuilder = new TreeBuilder('monsieurbiz_sylius_alert_message');
-        if (\method_exists($treeBuilder, 'getRootNode')) {
-            $rootNode = $treeBuilder->getRootNode();
-        } else {
-            // BC layer for symfony/config 4.1 and older
-            $rootNode = $treeBuilder->root('monsieurbiz_sylius_alert_message');
-        }
-
-        return $treeBuilder;
+        return new TreeBuilder('monsieurbiz_sylius_alert_message');
     }
 }

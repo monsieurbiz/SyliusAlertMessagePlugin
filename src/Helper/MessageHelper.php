@@ -1,4 +1,14 @@
 <?php
+
+/*
+ * This file is part of Monsieur Biz' Alert Message plugin for Sylius.
+ *
+ * (c) Monsieur Biz <sylius@monsieurbiz.com>
+ *
+ * For the full copyright and license information, please view the LICENSE.txt
+ * file that was distributed with this source code.
+ */
+
 declare(strict_types=1);
 
 namespace MonsieurBiz\SyliusAlertMessagePlugin\Helper;
@@ -34,11 +44,6 @@ final class MessageHelper extends Block
 
     /**
      * MessageHelper constructor.
-     *
-     * @param ChannelContextInterface $channelContext
-     * @param LocaleContextInterface $localeContext
-     * @param CustomerContextInterface $customerContext
-     * @param MessageRepositoryInterface $messageRepository
      */
     public function __construct(
         ChannelContextInterface $channelContext,
@@ -61,11 +66,6 @@ final class MessageHelper extends Block
         );
     }
 
-    /**
-     * @param Message $message
-     *
-     * @return bool
-     */
     public function canDisplayMessage(Message $message): bool
     {
         return
@@ -74,17 +74,11 @@ final class MessageHelper extends Block
         ;
     }
 
-    /**
-     * @param Message $message
-     *
-     * @return string|null
-     */
     public function formatMessageWithTemplate(Message $message): ?string
     {
-        $template = $message->getTemplateHtml();
-        $template = preg_replace('`{{\s*title\s*}}`i', $message->getTitle(), $template);
-        $template = preg_replace('`{{\s*message\s*}}`i', $message->getMessage(), $template);
-        return $template;
-    }
+        $template = (string) $message->getTemplateHtml();
+        $template = preg_replace('`{{\s*title\s*}}`i', (string) $message->getTitle(), $template);
 
+        return preg_replace('`{{\s*message\s*}}`i', (string) $message->getMessage(), (string) $template);
+    }
 }
