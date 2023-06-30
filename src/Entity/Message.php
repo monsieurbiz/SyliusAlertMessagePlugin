@@ -19,7 +19,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\Timestampable\Timestampable;
-use Sylius\Component\Channel\Model\Channel;
+use Sylius\Component\Core\Model\ChannelInterface;
 use Sylius\Component\Resource\Model\ResourceInterface;
 use Sylius\Component\Resource\Model\TimestampableInterface;
 use Sylius\Component\Resource\Model\TimestampableTrait;
@@ -78,8 +78,8 @@ class Message implements ResourceInterface, TimestampableInterface, ToggleableIn
     protected $description;
 
     /**
-     * @var Collection<int, Channel>
-     * @ORM\ManyToMany(targetEntity="\Sylius\Component\Channel\Model\Channel")
+     * @var Collection<int, ChannelInterface>
+     * @ORM\ManyToMany(targetEntity="\Sylius\Component\Core\Model\ChannelInterface")
      * @ORM\JoinTable(
      *     name="mbiz_alert_message_channels",
      *     joinColumns={@ORM\JoinColumn(name="message_id", referencedColumnName="id")},
@@ -175,19 +175,19 @@ class Message implements ResourceInterface, TimestampableInterface, ToggleableIn
     }
 
     /**
-     * @return Collection<int, Channel>
+     * @return Collection<int, ChannelInterface>
      */
     public function getChannels(): Collection
     {
         return $this->channels;
     }
 
-    public function addChannel(Channel $channel): void
+    public function addChannel(ChannelInterface $channel): void
     {
         $this->channels->add($channel);
     }
 
-    public function removeChannel(Channel $channel): void
+    public function removeChannel(ChannelInterface $channel): void
     {
         $this->channels->removeElement($channel);
     }

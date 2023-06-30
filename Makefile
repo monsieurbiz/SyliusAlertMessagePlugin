@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := help
 SHELL=/bin/bash
 APP_DIR=tests/Application
-SYLIUS_VERSION=1.10.0
+SYLIUS_VERSION=1.12.0
 SYMFONY=cd ${APP_DIR} && symfony
 COMPOSER=symfony composer
 CONSOLE=${SYMFONY} console
@@ -69,6 +69,8 @@ setup_application:
 	(cd ${APP_DIR} && ${COMPOSER} config repositories.plugin '{"type": "path", "url": "../../"}')
 	(cd ${APP_DIR} && ${COMPOSER} config extra.symfony.allow-contrib true)
 	(cd ${APP_DIR} && ${COMPOSER} config minimum-stability dev)
+	(cd ${APP_DIR} && ${COMPOSER} config --no-plugins allow-plugins true)
+	(cd ${APP_DIR} && ${COMPOSER} config --no-plugins --json extra.symfony.endpoint '["https://api.github.com/repos/monsieurbiz/symfony-recipes/contents/index.json?ref=flex/master","flex://defaults"]')
 	(cd ${APP_DIR} && ${COMPOSER} require --no-install --no-scripts --no-progress sylius/sylius="~${SYLIUS_VERSION}") # Make sure to install the required version of sylius because the sylius-standard has a soft constraint
 	$(MAKE) ${APP_DIR}/.php-version
 	$(MAKE) ${APP_DIR}/php.ini
@@ -144,7 +146,7 @@ test.twig: ## Validate Twig templates
 ### SYLIUS
 ### ¯¯¯¯¯¯
 
-sylius: dependencies sylius.database sylius.fixtures sylius.assets ## Install Sylius
+sylius: dependencies sylius.database sylius.fixtures sylius.assets messenger.setup ## Install Sylius
 .PHONY: sylius
 
 sylius.database: ## Setup the database
@@ -159,6 +161,9 @@ sylius.assets: ## Install all assets with symlinks
 	${CONSOLE} assets:install --symlink
 	${CONSOLE} sylius:install:assets
 	${CONSOLE} sylius:theme:assets:install --symlink
+
+messenger.setup: ## Setup Messenger transports
+	${CONSOLE} messenger:setup-transports
 
 ###
 ### PLATFORM
