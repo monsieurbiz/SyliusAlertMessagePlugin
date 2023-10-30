@@ -1,20 +1,11 @@
-<p align="center">
-    <a href="https://monsieurbiz.com" target="_blank">
-        <img src="https://monsieurbiz.com/logo.png" width="250px" alt="Monsieur Biz logo" />
-    </a>
-    &nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="https://monsieurbiz.com/agence-web-experte-sylius" target="_blank">
-        <img src="https://demo.sylius.com/assets/shop/img/logo.png" width="200px" alt="Sylius logo" />
-    </a>
-    <br/>
-    <img src="https://monsieurbiz.com/assets/images/sylius_badge_extension-artisan.png" width="100" alt="Monsieur Biz is a Sylius Extension Artisan partner">
-</p>
+[![Banner of Sylius Alert Message plugin](docs/images/banner.jpg)](https://monsieurbiz.com/agence-web-experte-sylius)
 
 <h1 align="center">Alert Message</h1>
 
 [![Alert Message Plugin license](https://img.shields.io/github/license/monsieurbiz/SyliusAlertMessagePlugin?public)](https://github.com/monsieurbiz/SyliusAlertMessagePlugin/blob/master/LICENSE.txt)
-[![Tests Status](https://img.shields.io/github/workflow/status/monsieurbiz/SyliusAlertMessagePlugin/Tests?logo=github)](https://github.com/monsieurbiz/SyliusAlertMessagePlugin/actions?query=workflow%3ATests)
-[![Security Status](https://img.shields.io/github/workflow/status/monsieurbiz/SyliusAlertMessagePlugin/Security?label=security&logo=github)](https://github.com/monsieurbiz/SyliusAlertMessagePlugin/actions?query=workflow%3ASecurity)
+[![Tests](https://github.com/monsieurbiz/SyliusAlertMessagePlugin/actions/workflows/tests.yaml/badge.svg)](https://github.com/monsieurbiz/SyliusAlertMessagePlugin/actions/workflows/tests.yaml)
+[![Security](https://github.com/monsieurbiz/SyliusAlertMessagePlugin/actions/workflows/security.yaml/badge.svg)](https://github.com/monsieurbiz/SyliusAlertMessagePlugin/actions/workflows/security.yaml)
+[![Flex Recipe](https://github.com/monsieurbiz/SyliusAlertMessagePlugin/actions/workflows/recipe.yaml/badge.svg)](https://github.com/monsieurbiz/SyliusAlertMessagePlugin/actions/workflows/recipe.yaml)
 
 This plugins allows you to add simple messages on your shop.  
 The messages can be different for logged-in customers.
