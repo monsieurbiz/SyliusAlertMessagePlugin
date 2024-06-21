@@ -8,7 +8,7 @@
                             http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd"
 >
 
-    <mapped-superclass name="\MonsieurBiz\SyliusAlertMessagePlugin\Entity\Message" table="mbiz_alert_message">
+    <mapped-superclass name="MonsieurBiz\SyliusAlertMessagePlugin\Entity\Message" table="mbiz_alert_message">
         <id name="id" column="id" type="integer">
             <generator strategy="AUTO" />
         </id>
