@@ -13,37 +13,16 @@ declare(strict_types=1);
 
 namespace MonsieurBiz\SyliusAlertMessagePlugin\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 use Sylius\Component\Resource\Model\AbstractTranslation;
 use Sylius\Component\Resource\Model\ResourceInterface;
-use Sylius\Component\Resource\Model\TranslationInterface;
 
-/**
- * @ORM\Entity
- * @ORM\Table(name="mbiz_alert_message_translation")
- */
-class MessageTranslation extends AbstractTranslation implements TranslationInterface, ResourceInterface
+class MessageTranslation extends AbstractTranslation implements ResourceInterface
 {
-    /**
-     * @var int|null
-     *
-     * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue
-     */
-    private $id;
+    protected ?int $id = null;
 
-    /**
-     * @var string|null
-     * @ORM\Column(type="string", nullable=true)
-     */
-    private $title;
+    private ?string $title = null;
 
-    /**
-     * @var string|null
-     * @ORM\Column(type="text")
-     */
-    private $message;
+    private ?string $message = null;
 
     public function getId(): ?int
     {
