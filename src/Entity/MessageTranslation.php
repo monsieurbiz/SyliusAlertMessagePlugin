@@ -20,9 +20,9 @@ class MessageTranslation extends AbstractTranslation implements ResourceInterfac
 {
     protected ?int $id = null;
 
-    private ?string $title = null;
+    protected ?string $title = null;
 
-    private ?string $message = null;
+    protected ?string $message = null;
 
     public function getId(): ?int
     {

@@ -46,13 +46,13 @@ class Message implements ResourceInterface, TimestampableInterface, ToggleableIn
     protected ?string $description = null;
 
     /** @var Collection<int, ChannelInterface> */
-    private Collection $channels;
+    protected Collection $channels;
 
-    private ?string $templateHtml = null;
+    protected ?string $templateHtml = null;
 
-    private ?DateTimeInterface $fromDate = null;
+    protected ?DateTimeInterface $fromDate = null;
 
-    private ?DateTimeInterface $toDate = null;
+    protected ?DateTimeInterface $toDate = null;
 
     /**
      * Message constructor.
