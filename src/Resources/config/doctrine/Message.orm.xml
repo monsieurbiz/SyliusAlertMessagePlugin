@@ -38,15 +38,15 @@
             </join-table>
         </many-to-many>
 
-        <field name="createdAt" column="created_at" type="datetime">
+        <field name="createdAt" column="created_at" type="datetime_immutable">
             <gedmo:timestampable on="create"/>
         </field>
 
-        <field name="updatedAt" column="updated_at" type="datetime">
+        <field name="updatedAt" column="updated_at" type="datetime_immutable">
             <gedmo:timestampable on="update"/>
         </field>
 
-        <field name="templateHtml" column="template_html" type="string" nullable="true" />
+        <field name="templateHtml" column="template_html" type="text" nullable="true" />
         <field name="fromDate" column="from_date" type="datetime" nullable="true" />
         <field name="toDate" column="to_date" type="datetime" nullable="true" />
     </mapped-superclass>
