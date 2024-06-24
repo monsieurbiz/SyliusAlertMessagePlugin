@@ -39,6 +39,7 @@ class Message implements ResourceInterface, TimestampableInterface, ToggleableIn
     }
 
     protected ?int $id = null;
+
     protected bool $customersOnly = false;
 
     protected ?string $name = null;
