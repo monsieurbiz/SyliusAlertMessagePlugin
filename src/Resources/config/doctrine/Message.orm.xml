@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<doctrine-mapping
+    xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+    xmlns:gedmo="http://gediminasm.org/schemas/orm/doctrine-extensions-mapping"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                            http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd"
+>
+
+    <mapped-superclass name="MonsieurBiz\SyliusAlertMessagePlugin\Entity\Message" table="mbiz_alert_message">
+        <id name="id" column="id" type="integer">
+            <generator strategy="AUTO" />
+        </id>
+        <field name="enabled" column="enabled" type="boolean">
+            <options>
+                <option name="default">1</option>
+            </options>
+        </field>
+
+        <field name="customersOnly" column="customers_only" type="boolean">
+            <options>
+                <option name="default">0</option>
+            </options>
+        </field>
+
+        <field name="name" column="name" type="string" />
+        <field name="description" column="description" type="string" nullable="true" />
+
+        <many-to-many field="channels" target-entity="Sylius\Component\Core\Model\ChannelInterface">
+            <join-table name="mbiz_alert_message_channels">
+                <join-columns>
+                    <join-column name="message_id" />
+                </join-columns>
+                <inverse-join-columns>
+                    <join-column name="channel_id" />
+                </inverse-join-columns>
+            </join-table>
+        </many-to-many>
+
+        <field name="createdAt" column="created_at" type="datetime_immutable">
+            <gedmo:timestampable on="create"/>
+        </field>
+
+        <field name="updatedAt" column="updated_at" type="datetime">
+            <gedmo:timestampable on="update"/>
+        </field>
+
+        <field name="templateHtml" column="template_html" type="text" nullable="true" />
+        <field name="fromDate" column="from_date" type="datetime" nullable="true" />
+        <field name="toDate" column="to_date" type="datetime" nullable="true" />
+    </mapped-superclass>
+
+</doctrine-mapping>

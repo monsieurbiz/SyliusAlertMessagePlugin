@@ -16,8 +16,6 @@ namespace MonsieurBiz\SyliusAlertMessagePlugin\Entity;
 use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\Timestampable\Timestampable;
 use Sylius\Component\Core\Model\ChannelInterface;
 use Sylius\Component\Resource\Model\ResourceInterface;
@@ -28,10 +26,6 @@ use Sylius\Component\Resource\Model\ToggleableTrait;
 use Sylius\Component\Resource\Model\TranslatableInterface;
 use Sylius\Component\Resource\Model\TranslatableTrait;
 
-/**
- * @ORM\Entity
- * @ORM\Table(name="mbiz_alert_message")
- */
 class Message implements ResourceInterface, TimestampableInterface, ToggleableInterface, TranslatableInterface, Timestampable
 {
     use TimestampableTrait;
@@ -44,81 +38,22 @@ class Message implements ResourceInterface, TimestampableInterface, ToggleableIn
         getTranslation as private doGetTranslation;
     }
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
-    private $id;
+    protected ?int $id = null;
 
-    /**
-     * @var bool
-     * @ORM\Column(type="boolean", options={"default"=true})
-     */
-    protected $enabled = true;
+    protected bool $customersOnly = false;
 
-    /**
-     * @var bool
-     * @ORM\Column(name="customers_only", type="boolean", options={"default"=false})
-     */
-    protected $customersOnly = false;
+    protected ?string $name = null;
 
-    /**
-     * @var string|null
-     * @ORM\Column(type="string")
-     */
-    protected $name;
+    protected ?string $description = null;
 
-    /**
-     * @var string|null
-     * @ORM\Column(type="string", nullable=true)
-     */
-    protected $description;
+    /** @var Collection<int, ChannelInterface> */
+    protected Collection $channels;
 
-    /**
-     * @var Collection<int, ChannelInterface>
-     * @ORM\ManyToMany(targetEntity="\Sylius\Component\Core\Model\ChannelInterface")
-     * @ORM\JoinTable(
-     *     name="mbiz_alert_message_channels",
-     *     joinColumns={@ORM\JoinColumn(name="message_id", referencedColumnName="id")},
-     *     inverseJoinColumns={@ORM\JoinColumn(name="channel_id", referencedColumnName="id")}
-     * )
-     */
-    private $channels;
+    protected ?string $templateHtml = null;
 
-    /**
-     * @var DateTimeInterface|null
-     * @ORM\Column(name="created_at", type="datetime_immutable")
-     * @Gedmo\Timestampable(on="create")
-     */
-    protected $createdAt;
+    protected ?DateTimeInterface $fromDate = null;
 
-    /**
-     * @var DateTimeInterface|null
-     * @ORM\Column(name="updated_at", type="datetime")
-     * @Gedmo\Timestampable(on="update")
-     */
-    protected $updatedAt;
-
-    /**
-     * @var string|null
-     * @ORM\Column(name="template_html", type="text", nullable=true)
-     */
-    private $templateHtml;
-
-    /**
-     * @var DateTimeInterface|null
-     * @ORM\Column(name="from_date", type="datetime", nullable=true)
-     */
-    private $fromDate;
-
-    /**
-     * @var DateTimeInterface|null
-     * @ORM\Column(name="to_date", type="datetime", nullable=true)
-     */
-    private $toDate;
+    protected ?DateTimeInterface $toDate = null;
 
     /**
      * Message constructor.
