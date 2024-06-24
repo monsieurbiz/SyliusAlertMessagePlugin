@@ -14,13 +14,13 @@
         </id>
         <field name="enabled" column="enabled" type="boolean">
             <options>
-                <option name="default">true</option>
+                <option name="default">1</option>
             </options>
         </field>
 
         <field name="customersOnly" column="customers_only" type="boolean">
             <options>
-                <option name="default">false</option>
+                <option name="default">0</option>
             </options>
         </field>
 
