@@ -117,7 +117,7 @@ class MessageFixtureFactory extends AbstractExampleFactory implements MessageFix
                 return $this->faker->boolean(80);
             })
             ->setDefault('customers_only', function (Options $options): bool {
-                return $this->faker->boolean(80);
+                return $this->faker->boolean(10);
             })
             ->setDefault('name', function (Options $options): string {
                 return $this->faker->sentence(2, true);
