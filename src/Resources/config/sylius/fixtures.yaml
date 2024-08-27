@@ -1,0 +1,22 @@
+sylius_fixtures:
+    suites:
+        default:
+            fixtures:
+                monsieurbiz_alert_message:
+                    options:
+                        random: 10
+                        prototype:
+                            enabled: false
+                        custom:
+                            -   name: 'Test Alert'
+                                description: 'This is a test alert'
+                                from: yesterday
+                                to: tomorrow
+                                enabled: true
+                                customers_only: false
+                                channels:
+                                    - 'FASHION_WEB'
+                                translations:
+                                    en_US:
+                                        title: 'Test message'
+                                        message : 'This is a test message'
