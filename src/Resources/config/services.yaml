@@ -28,11 +28,13 @@ services:
     tags:
       - { name: form.type }
     arguments:
-      - '%monsieurbiz_alert_message.model.message.class%'
+        $dataClass: '%monsieurbiz_alert_message.model.message.class%'
+        $validationGroups: ['monsieurbiz']
 
   monsieurbiz_alert_message.form.type.message_translation:
     class: MonsieurBiz\SyliusAlertMessagePlugin\Form\Type\MessageTranslationType
     tags:
       - { name: form.type }
     arguments:
-      - '%monsieurbiz_alert_message.model.message_translation.class%'
+        $dataClass: '%monsieurbiz_alert_message.model.message_translation.class%'
+        $validationGroups: ['monsieurbiz']

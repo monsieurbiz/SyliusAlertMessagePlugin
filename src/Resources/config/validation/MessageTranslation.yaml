@@ -1,0 +1,5 @@
+MonsieurBiz\SyliusAlertMessagePlugin\Entity\MessageTranslation:
+    properties:
+        message:
+            -   NotBlank:
+                    groups: [monsieurbiz]
