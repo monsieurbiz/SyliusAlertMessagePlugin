@@ -14,13 +14,14 @@ declare(strict_types=1);
 namespace MonsieurBiz\SyliusAlertMessagePlugin\Repository;
 
 use DateTime;
+use Exception;
 use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 use Sylius\Component\Channel\Model\ChannelInterface;
 
 final class MessageRepository extends EntityRepository implements MessageRepositoryInterface
 {
     /**
-     * @throws \Exception
+     * @throws Exception
      *
      * @return mixed
      */

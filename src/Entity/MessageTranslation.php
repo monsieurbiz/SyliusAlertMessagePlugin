@@ -14,9 +14,8 @@ declare(strict_types=1);
 namespace MonsieurBiz\SyliusAlertMessagePlugin\Entity;
 
 use Sylius\Component\Resource\Model\AbstractTranslation;
-use Sylius\Component\Resource\Model\ResourceInterface;
 
-class MessageTranslation extends AbstractTranslation implements ResourceInterface
+class MessageTranslation extends AbstractTranslation implements MessageTranslationInterface
 {
     protected ?int $id = null;
 

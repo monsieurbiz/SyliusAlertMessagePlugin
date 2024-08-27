@@ -1,0 +1,11 @@
+MonsieurBiz\SyliusAlertMessagePlugin\Entity\Message:
+    properties:
+        name:
+            -   NotBlank:
+                    groups: [monsieurbiz]
+            -   Length:
+                    min: 2
+                    max: 255
+                    groups: [monsieurbiz]
+        translations:
+            -   Valid: ~

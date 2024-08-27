@@ -1,11 +1,12 @@
 [![Banner of Sylius Alert Message plugin](docs/images/banner.jpg)](https://monsieurbiz.com/agence-web-experte-sylius)
 
-<h1 align="center">Alert Message</h1>
+<h1 align="center">Sylius Alert Message</h1>
 
 [![Alert Message Plugin license](https://img.shields.io/github/license/monsieurbiz/SyliusAlertMessagePlugin?public)](https://github.com/monsieurbiz/SyliusAlertMessagePlugin/blob/master/LICENSE.txt)
-[![Tests](https://github.com/monsieurbiz/SyliusAlertMessagePlugin/actions/workflows/tests.yaml/badge.svg)](https://github.com/monsieurbiz/SyliusAlertMessagePlugin/actions/workflows/tests.yaml)
-[![Security](https://github.com/monsieurbiz/SyliusAlertMessagePlugin/actions/workflows/security.yaml/badge.svg)](https://github.com/monsieurbiz/SyliusAlertMessagePlugin/actions/workflows/security.yaml)
-[![Flex Recipe](https://github.com/monsieurbiz/SyliusAlertMessagePlugin/actions/workflows/recipe.yaml/badge.svg)](https://github.com/monsieurbiz/SyliusAlertMessagePlugin/actions/workflows/recipe.yaml)
+[![Tests Status](https://img.shields.io/github/actions/workflow/status/monsieurbiz/SyliusAlertMessagePlugin/tests.yaml?branch=master&logo=github)](https://github.com/monsieurbiz/SyliusAlertMessagePlugin/actions?query=workflow%3ATests)
+[![Recipe Status](https://img.shields.io/github/actions/workflow/status/monsieurbiz/SyliusAlertMessagePlugin/recipe.yaml?branch=master&label=recipes&logo=github)](https://github.com/monsieurbiz/SyliusAlertMessagePlugin/actions?query=workflow%3ASecurity)
+[![Security Status](https://img.shields.io/github/actions/workflow/status/monsieurbiz/SyliusAlertMessagePlugin/security.yaml?branch=master&label=security&logo=github)](https://github.com/monsieurbiz/SyliusAlertMessagePlugin/actions?query=workflow%3ASecurity)
+
 
 This plugins allows you to add simple messages on your shop.  
 The messages can be different for logged-in customers.
@@ -15,11 +16,26 @@ By default it'll use the Semantic UI classes.
 
 ![](screenshot.png) 
 
+## Compatibility
+
+| Sylius Version | PHP Version |
+|---|---|
+| 1.11 | 8.0 - 8.1 |
+| 1.12 | 8.1 - 8.2 |
+| 1.13 | 8.1 - 8.2 |
+
+
 ## Installation
 
 **Beware!**
 
 > This installation instruction assumes that you're using Symfony Flex.
+
+If you want to use our recipes, you can configure your composer.json by running:
+
+```bash
+composer config --no-plugins --json extra.symfony.endpoint '["https://api.github.com/repos/monsieurbiz/symfony-recipes/contents/index.json?ref=flex/master","flex://defaults"]'
+```
 
 1. Require the plugin using composer
 
@@ -27,10 +43,9 @@ By default it'll use the Semantic UI classes.
     composer require monsieurbiz/sylius-alert-message-plugin
     ```
 
-2. Generate & Run Doctrine migrations
+2. Run Doctrine migrations
 
     ```
-    ./bin/console doctrine:migration:diff
     ./bin/console doctrine:migration:migrate
     ```
 
