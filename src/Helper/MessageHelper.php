@@ -70,8 +70,7 @@ final class MessageHelper extends Block
     {
         return
             !$message->isCustomersOnly()
-            || null !== $this->customerContext->getCustomer()
-        ;
+            || null !== $this->customerContext->getCustomer();
     }
 
     public function formatMessageWithTemplate(Message $message): ?string

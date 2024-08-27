@@ -20,7 +20,6 @@ use Sylius\Bundle\CoreBundle\Fixture\Factory\AbstractExampleFactory;
 use Sylius\Bundle\CoreBundle\Fixture\OptionsResolver\LazyOption;
 use Sylius\Component\Channel\Repository\ChannelRepositoryInterface;
 use Sylius\Component\Locale\Model\LocaleInterface;
-use Sylius\Component\Product\Generator\SlugGeneratorInterface;
 use Sylius\Component\Resource\Factory\FactoryInterface;
 use Sylius\Component\Resource\Repository\RepositoryInterface;
 use Symfony\Component\OptionsResolver\Options;
@@ -43,9 +42,6 @@ class MessageFixtureFactory extends AbstractExampleFactory implements MessageFix
      */
     private $optionsResolver;
 
-    /** @var SlugGeneratorInterface */
-    private $slugGenerator;
-
     /** @var \Faker\Generator */
     private $faker;
 
@@ -58,7 +54,6 @@ class MessageFixtureFactory extends AbstractExampleFactory implements MessageFix
     public function __construct(
         FactoryInterface $messageFactory,
         FactoryInterface $messageTranslationFactory,
-        SlugGeneratorInterface $slugGenerator,
         ChannelRepositoryInterface $channelRepository,
         RepositoryInterface $localeRepository
     ) {
@@ -67,7 +62,6 @@ class MessageFixtureFactory extends AbstractExampleFactory implements MessageFix
         $this->channelRepository = $channelRepository;
         $this->localeRepository = $localeRepository;
 
-        $this->slugGenerator = $slugGenerator;
         $this->faker = \Faker\Factory::create();
 
         $this->optionsResolver = new OptionsResolver();
