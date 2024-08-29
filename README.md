@@ -63,6 +63,10 @@ You could use this plugin to:
 
 Being able to add a well seen message on your shop can be useful.
 
+## Admin form
+
+![](admin-form.jpg)
+
 ## Testing
 
 See [TESTING.md](TESTING.md).
