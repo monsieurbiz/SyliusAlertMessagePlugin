@@ -23,3 +23,7 @@ monsieurbiz_alert_message:
       create: Create message
       update: Update
       delete: Delete
+sylius_plus:
+  rbac:
+    parent:
+      messages: 'Alert messages'
