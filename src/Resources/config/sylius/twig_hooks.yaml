@@ -1,0 +1,6 @@
+sylius_twig_hooks:
+    hooks:
+        'sylius_shop.base.header':
+            monsieurbiz.alertmessage.message:
+                template: '@MonsieurBizSyliusAlertMessagePlugin/message.html.twig'
+                priority: 900
