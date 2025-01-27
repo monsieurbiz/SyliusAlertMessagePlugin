@@ -23,12 +23,12 @@ sylius_grid:
           type: twig
           label: monsieurbiz_alert_message.ui.form.enabled
           options:
-            template: "@SyliusUi/Grid/Field/enabled.html.twig"
+            template: "@SyliusAdmin/shared/grid/field/boolean.html.twig"
         customersOnly:
           type: twig
           label: monsieurbiz_alert_message.ui.form.customers_only
           options:
-            template: "@MonsieurBizSyliusAlertMessagePlugin/Grid/Field/customers_only.html.twig"
+            template: "@SyliusAdmin/shared/grid/field/boolean.html.twig"
       actions:
         main:
           create:
