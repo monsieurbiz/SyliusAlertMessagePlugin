@@ -4,7 +4,7 @@ sylius_grid:
       driver:
         name: doctrine/orm
         options:
-          class: MonsieurBiz\SyliusAlertMessagePlugin\Entity\Message
+          class: '%monsieurbiz_alert_message.model.message.class%'
       limits: [25, 50, 100, 200]
       fields:
         name:
@@ -23,12 +23,12 @@ sylius_grid:
           type: twig
           label: monsieurbiz_alert_message.ui.form.enabled
           options:
-            template: "@SyliusUi/Grid/Field/enabled.html.twig"
+            template: "@SyliusAdmin/shared/grid/field/boolean.html.twig"
         customersOnly:
           type: twig
           label: monsieurbiz_alert_message.ui.form.customers_only
           options:
-            template: "@MonsieurBizSyliusAlertMessagePlugin/Grid/Field/customers_only.html.twig"
+            template: "@SyliusAdmin/shared/grid/field/boolean.html.twig"
       actions:
         main:
           create:
