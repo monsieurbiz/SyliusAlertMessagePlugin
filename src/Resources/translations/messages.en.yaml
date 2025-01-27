@@ -1,5 +1,6 @@
 monsieurbiz_alert_message:
   ui:
+    message: Alert message
     messages: Alert messages
     messages_subheader: Manage alerts on your shop
     new_message: New message
