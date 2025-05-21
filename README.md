@@ -14,15 +14,15 @@ The messages can be different for logged-in customers.
 The message is displayed just after the opening `body`. You can change the HTML template directly in the admin panel.  
 By default it'll use the Semantic UI classes.
 
-![](screenshot.png) 
+![](docs/images/alert-message.png) 
 
 ## Compatibility
 
 | Sylius Version | PHP Version     |
 |----------------|-----------------|
-| 1.12           | 8.1 - 8.2 - 8.3 |
-| 1.13           | 8.1 - 8.2 - 8.3 |
-| 1.14           | 8.1 - 8.2 - 8.3 |
+| 2.0            | 8.2 - 8.3       |
+
+ℹ️ For Sylius 1.x, see our [1.x branch](https://github.com/monsieurbiz/SyliusAlertMessagePlugin/tree/1.x) and all 1.x releases.
 
 ## Installation
 
@@ -64,7 +64,7 @@ Being able to add a well seen message on your shop can be useful.
 
 ## Admin form
 
-![](admin-form.jpg)
+![](docs/images/admin-form.png)
 
 ## Testing
 

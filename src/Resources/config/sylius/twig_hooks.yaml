@@ -1,0 +1,18 @@
+sylius_twig_hooks:
+    hooks:
+        'sylius_shop.base.header':
+            monsieurbiz.alertmessage.message:
+                template: '@MonsieurBizSyliusAlertMessagePlugin/message.html.twig'
+                priority: 900
+        'sylius_admin.message.create.content.form.sections.general':
+            default:
+                enabled: false
+            general:
+                template: '@MonsieurBizSyliusAlertMessagePlugin/admin/message/form/sections/general.html.twig'
+                priority: 100
+        'sylius_admin.message.update.content.form.sections.general':
+            default:
+                enabled: false
+            general:
+                template: '@MonsieurBizSyliusAlertMessagePlugin/admin/message/form/sections/general.html.twig'
+                priority: 100

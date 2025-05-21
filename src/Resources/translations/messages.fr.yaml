@@ -1,5 +1,6 @@
 monsieurbiz_alert_message:
   ui:
+    message: Message d'alerte
     messages: Messages d'alerte
     messages_subheader: Gérer les alertes sur votre boutique
     new_message: Nouveau message

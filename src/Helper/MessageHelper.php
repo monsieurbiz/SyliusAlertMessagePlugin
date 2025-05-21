@@ -15,12 +15,11 @@ namespace MonsieurBiz\SyliusAlertMessagePlugin\Helper;
 
 use MonsieurBiz\SyliusAlertMessagePlugin\Entity\Message;
 use MonsieurBiz\SyliusAlertMessagePlugin\Repository\MessageRepositoryInterface;
-use Sonata\BlockBundle\Model\Block;
 use Sylius\Component\Channel\Context\ChannelContextInterface;
 use Sylius\Component\Customer\Context\CustomerContextInterface;
 use Sylius\Component\Locale\Context\LocaleContextInterface;
 
-final class MessageHelper extends Block
+final class MessageHelper
 {
     /**
      * @var ChannelContextInterface
@@ -51,7 +50,6 @@ final class MessageHelper extends Block
         CustomerContextInterface $customerContext,
         MessageRepositoryInterface $messageRepository
     ) {
-        parent::__construct();
         $this->channelContext = $channelContext;
         $this->localeContext = $localeContext;
         $this->customerContext = $customerContext;

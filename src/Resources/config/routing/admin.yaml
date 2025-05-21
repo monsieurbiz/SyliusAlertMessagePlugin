@@ -3,7 +3,7 @@ monsieurbiz_sylius_alert_message_admin:
     alias: monsieurbiz_alert_message.message
     section: admin
     permission: true
-    templates: "@SyliusAdmin\\Crud"
+    templates: "@SyliusAdmin\\shared\\crud"
     except: ['show']
     redirect: update
     grid: monsieurbiz_alert_message

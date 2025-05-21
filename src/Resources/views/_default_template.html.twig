@@ -1,6 +1,6 @@
-<div class="ui error message" style="margin: 0; border-radius: 0">
+<div class="alert alert-danger mb-0" role="alert">
     {% if message.title is defined -%}
-    <div class="header">{{ message.title }}</div>
+        <div class="h5">{{ message.title }}</div>
     {%- endif %}
     <div>{{ message.message|raw }}</div>
 </div>
